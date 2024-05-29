@@ -1,3 +1,6 @@
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     int saipranith(string s) {
@@ -49,5 +52,46 @@ public:
 
         return operations + carry;
     }
+
+    int zeeshan(string s) {
+
+        std::reverse(s.begin(), s.end());
+
+        int i = 0, res = 0;
+
+        while(i != s.size() - 1)
+        {
+            if(s[i] == '0') i++;
+            else {
+
+                int j = i;
+                int carry = 0;
+
+                while(j < s.size())
+                {
+                    if(s[j] == '1'){
+                        s[j] = '0';
+                        carry = 1;
+                    }
+                    else{
+                        s[j] = '1';
+                        carry = 0;
+                        break;
+                    }
+                    j++;
+                }
+                if(carry) s.push_back('1');
+
+            }
+ 
+            res++;
+
+        }
+
+        return res;
+        
+    }
 };
+
+
 
