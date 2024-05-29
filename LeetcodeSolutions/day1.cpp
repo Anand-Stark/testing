@@ -91,6 +91,40 @@ public:
         return res;
         
     }
+
+    int Anand(string s) {
+
+        int ans = 0;
+        int n = s.size();
+
+        while(s.size()!=1){
+                if((s[s.size()-1]-'0') == 0){
+                    s.pop_back();
+                    ans++;
+            }
+            else{
+                int i = s.size()-1;
+                for(;i >= 0; i--){
+                    if((s[i] - '0') == 0){
+                        s[i] = '1';
+                        break;
+                    }
+                    else{
+                        s[i] = '0';
+                    }
+                }
+
+                if(s[0] == '0'){
+                    s  = '1' + s;
+                }
+
+                ans++;
+            } 
+        }
+
+        return ans;
+          
+    }
 };
 
 
